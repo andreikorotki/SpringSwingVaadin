@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true"
+>
+
+
+
+    <bean id="itemService" class="todo.webui.ItemServiceImpl" >
+        <property name="itemMap">
+            <ref bean="itemMap"/>
+        </property>
+    </bean>
+
+    <bean id="item" class="todo.webui.Item" scope="prototype">
+    </bean>
+
+
+    <bean id="notification" class="com.vaadin.flow.component.notification.Notification" scope="prototype">
+    </bean>
+
+
+    <bean id="buttonDlt" class="com.vaadin.flow.component.button.Button">
+        <property name = "text" value = "Delete Item"/>
+    </bean>
+    <bean id="buttonAdd" class="com.vaadin.flow.component.button.Button">
+        <property name = "text" value = "Add Item"/>
+    </bean>
+    <bean id="textField" class="com.vaadin.flow.component.textfield.TextField">
+    </bean>
+
+    <bean id="itemMap" class="java.util.HashMap">
+        <constructor-arg>
+            <map key-type="java.lang.Long" value-type="todo.webui.Item">
+                <entry key="1">
+                <bean class="todo.webui.Item">
+                    <property name="id" value="1" />
+                    <property name="itemContent" value="Test Item 1" />
+                </bean>
+            </entry>
+                <entry key="2">
+                    <bean class="todo.webui.Item">
+                        <property name="id" value="2" />
+                        <property name="itemContent" value="Test Item 2" />
+                    </bean>
+                </entry>
+                <entry key="3">
+                    <bean class="todo.webui.Item">
+                        <property name="id" value="3" />
+                        <property name="itemContent" value="Test Item 3" />
+                    </bean>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+
+
+</beans>
